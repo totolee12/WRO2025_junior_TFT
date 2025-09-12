@@ -1,10 +1,10 @@
 #!/usr/bin/env pybricks-micropython
 
-from pybricks.hubs import EV3Brick        # Control del ladrillo EV3
-from pybricks.ev3devices import Motor, GyroSensor  # Motores y giroscopio
-from pybricks.parameters import Port, Direction   # Puertos y direcciones de giro
-from pybricks.tools import wait, StopWatch        # Pausa y cronómetro
-from pybricks.robotics import DriveBase           # Control de movimiento tipo coche
+# from pybricks.hubs import EV3Brick                 # Control del ladrillo EV3
+# from pybricks.ev3devices import Motor, GyroSensor  # Motores y giroscopio
+# from pybricks.parameters import Port, Direction    # Puertos y direcciones de giro
+# from pybricks.tools import wait, StopWatch         # Pausa y cronómetro
+# from pybricks.robotics import DriveBase            # Control de movimiento tipo coche
 
 # Inicializar ladrillo EV3
 ev3 = EV3Brick()
@@ -15,10 +15,6 @@ motor_derecho = Motor(Port.B)                                # Rueda derecha
 pala = Motor(Port.C, Direction.CLOCKWISE)                    # Mecanismo pala
 brazo = Motor(Port.D, Direction.CLOCKWISE)                   # Mecanismo brazo
 
-
-########################################################################################################
-# inicializa giroscopo
-# Conecta el giroscopio en S1 (cambiá el puerto si hace falta).
 # ----------------- Parámetros de calidad -----------------
 MAX_ATTEMPTS = 6           # Reintentos de inicialización
 SETTLE_MS = 700            # Tiempo para que el sensor "se asiente" tras crear el objeto
@@ -26,7 +22,6 @@ SAMPLE_MS = 800            # Ventana para muestrear velocidad (dps) y ver estabi
 VERIFY_MS = 2000           # Verificación final de deriva de ángulo (~2 s)
 RATE_ABS_MAX = 1.5         # |speed()| promedio aceptable en reposo [°/s]
 ANGLE_DRIFT_MAX = 2.0      # Deriva total aceptable en la verificación [°]
-# (Opcional) si tu cable es muy ruidoso, podés subir SETTLE_MS y SAMPLE_MS un poco.
 
 def _avg_abs(values):
     if not values:
@@ -130,32 +125,12 @@ gyro.reset_angle(0)
 # Base de conducción (DriveBase)
 robot = DriveBase(motor_izquierdo, motor_derecho, wheel_diameter=42, axle_track=220)
 
-# Función para avanzar o retroceder con control PID
-
-def mover_con_pid_suave(distancia_mm, velocidad=150, kp=1.5, ki=0.07, kd=0.1):
-    gyro.reset_angle(0)  # Reinicia giroscopio a 0°
-    robot.reset()        # Reinicia medición de distancia
-    target_angle = 0     # Ángulo objetivo recto
-
-    error_acum = 0       # Integral PID
-    error_prev = 0       # Derivativo PID
-
-def mover_con_pid(distancia_mm, velocidad=100, kp=1, ki=0.07, kd=0.1):
-    gyro.reset_angle(0)  # Reinicia giroscopio a 0°
-    robot.reset()        # Reinicia medición de distancia
-    target_angle = 0     # Ángulo objetivo recto
-
-    error_acum = 0       # Integral PID
-    error_prev = 0       # Derivativo PID
 
 def mover_con_pid_sin_reiniciar(distancia_mm, angulo, velocidad=100, kp=1, ki=0.07, kd=0.1):
-    #gyro.reset_angle(0)  # Reinicia giroscopio a 0°
-    robot.reset()        # Reinicia medición de distancia
+    robot.reset()             # Reinicia medición de distancia
     target_angle = angulo     # Ángulo objetivo recto
-    error_acum = 0       # Integral PID
-    error_prev = 0       # Derivativo PID
-
-
+    error_acum = 0            # Integral PID
+    error_prev = 0            # Derivativo PID
     while abs(robot.distance()) < abs(distancia_mm):  # Hasta recorrer la distancia
         error = target_angle - gyro.angle()           # Diferencia de ángulo
         error_acum += error                           # Suma de errores (integral)
@@ -164,12 +139,10 @@ def mover_con_pid_sin_reiniciar(distancia_mm, angulo, velocidad=100, kp=1, ki=0.
         correction = (kp * error) + (ki * error_acum) + (kd * derivada)  # PID
         # Avanza o retrocede aplicando la corrección
         robot.drive(velocidad if distancia_mm > 0 else -velocidad, correction)
-        wait(5)  # Pausa pequeña para estabilidad
+        wait(5)   # Pausa pequeña para estabilidad
     robot.stop()  # Detiene motores al finalizar
 
-# Giro a la izquierda usando giroscopio
 def giro_izq_rect(angulo, velocidad=200):
-#    gyro.reset_angle(0)
     reloj = StopWatch()
     while gyro.angle() > angulo and reloj.time() < 6000:
         motor_izquierdo.run(-velocidad)  # Izquierda hacia atrás
@@ -179,9 +152,7 @@ def giro_izq_rect(angulo, velocidad=200):
     motor_derecho.stop()
     wait(300)
 
-# Giro a la derecha usando giroscopio
 def giro_der_rect(angulo, velocidad=200):
-#   gyro.reset_angle(0)
     reloj = StopWatch()
     while gyro.angle() < angulo and reloj.time() < 6000:
         motor_izquierdo.run(velocidad)   # Izquierda hacia adelante
