@@ -74,8 +74,12 @@ Funciones.mover_con_pid_sin_reiniciar(200,0)
 Funciones.giro_izq(-20)
 Funciones.mover_con_pid_sin_reiniciar(250,0)
 Funciones.giro_der(90)
-Funciones.mover_con_pid_sin_reiniciar(1130)
-
+Funciones.mover_con_pid_sin_reiniciar(1130,90) #Aca va la camarita tomando valores
+Funciones.giro_der(180)
+Funciones.mover_con_pid_sin_reiniciar(850,-180)
+Funciones.mover_con_pid_sin_reiniciar(-150,-180)
+Funciones.giro_der(0)
+Funciones.mover_con_pid_sin_reiniciar(700,0)
 
 
 
