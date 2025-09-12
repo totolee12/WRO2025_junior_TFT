@@ -143,6 +143,8 @@ def mover_con_pid_sin_reiniciar(distancia_mm, angulo, velocidad=100, kp=1, ki=0.
     robot.stop()  # Detiene motores al finalizar
 
 def giro_izq(angulo, velocidad=200):
+    if angulo > 0:
+        angulo = angulo - 360
     reloj = StopWatch()
     while gyro.angle() > angulo and reloj.time() < 6000:
         motor_izquierdo.run(-velocidad)  # Izquierda hacia atrás
