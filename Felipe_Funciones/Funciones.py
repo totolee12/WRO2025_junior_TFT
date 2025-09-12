@@ -1,11 +1,22 @@
 #!/usr/bin/env pybricks-micropython
 
-# from pybricks.hubs import EV3Brick                 # Control del ladrillo EV3
-# from pybricks.ev3devices import Motor, GyroSensor  # Motores y giroscopio
-# from pybricks.parameters import Port, Direction    # Puertos y direcciones de giro
-# from pybricks.tools import wait, StopWatch         # Pausa y cronómetro
-# from pybricks.robotics import DriveBase            # Control de movimiento tipo coche
+from pybricks.hubs import EV3Brick                 # Control del ladrillo EV3
+from pybricks.ev3devices import Motor, GyroSensor  # Motores y giroscopio
+from pybricks.parameters import Port, Direction    # Puertos y direcciones de giro
+from pybricks.tools import wait, StopWatch         # Pausa y cronómetro
+from pybricks.robotics import DriveBase            # Control de movimiento tipo coche
 
+# Inicializar ladrillo EV3
+ev3 = EV3Brick()
+
+# Motores de conducción y accesorios
+motor_izquierdo = Motor(Port.A, Direction.COUNTERCLOCKWISE)  # Rueda izquierda
+motor_derecho = Motor(Port.B)                                # Rueda derecha
+pala = Motor(Port.C, Direction.CLOCKWISE)                    # Mecanismo pala
+brazo = Motor(Port.D, Direction.CLOCKWISE)                   # Mecanismo brazo
+
+# Base de conducción (DriveBase)
+robot = DriveBase(motor_izquierdo, motor_derecho, wheel_diameter=42, axle_track=220)
 
 # ----------------- Parámetros de calidad -----------------
 MAX_ATTEMPTS = 6           # Reintentos de inicialización
