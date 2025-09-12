@@ -6,14 +6,6 @@
 # from pybricks.tools import wait, StopWatch         # Pausa y cronómetro
 # from pybricks.robotics import DriveBase            # Control de movimiento tipo coche
 
-# Inicializar ladrillo EV3
-ev3 = EV3Brick()
-
-# Motores de conducción y accesorios
-motor_izquierdo = Motor(Port.A, Direction.COUNTERCLOCKWISE)  # Rueda izquierda
-motor_derecho = Motor(Port.B)                                # Rueda derecha
-pala = Motor(Port.C, Direction.CLOCKWISE)                    # Mecanismo pala
-brazo = Motor(Port.D, Direction.CLOCKWISE)                   # Mecanismo brazo
 
 # ----------------- Parámetros de calidad -----------------
 MAX_ATTEMPTS = 6           # Reintentos de inicialización
@@ -121,9 +113,6 @@ gyro, ok, info = init_gyro(Port.S2)
 # Sensor giroscópico
 #gyro = GyroSensor(Port.S2)
 gyro.reset_angle(0)
-
-# Base de conducción (DriveBase)
-robot = DriveBase(motor_izquierdo, motor_derecho, wheel_diameter=42, axle_track=220)
 
 
 def mover_con_pid_sin_reiniciar(distancia_mm, angulo, velocidad=100, kp=1, ki=0.07, kd=0.1):
