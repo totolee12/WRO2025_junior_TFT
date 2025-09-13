@@ -6,7 +6,7 @@ from pybricks.parameters import Port, Direction   # Puertos y direcciones de gir
 from pybricks.tools import wait, StopWatch        # Pausa y cronómetro
 from pybricks.robotics import DriveBase           # Control de movimiento tipo coche
 from Felipe_Funciones import Funciones
-from tomi_camarita import camara
+from tomi_camarita.camara import detectar_bloques
 
 # Inicializar ladrillo EV3
 ev3 = EV3Brick()
@@ -75,25 +75,15 @@ Funciones.giro_izq(-20)                         #gira para acomodarse
 Funciones.mover_con_pid_sin_reiniciar(250,-20)  #abanza para ir a los bloques de colores
 Funciones.giro_der(90)                          #gira para ir a los bloques de colores
 Funciones.mover_con_pid_sin_reiniciar(-100,90)  #retrocede y acomoda con la pared
-camara.mover_y_detectar_colores()
-
-Funciones.mover_con_pid_sin_reiniciar(1300,90)  #avanza hacia dron
-Funciones.giro_der(180)                         #gira para ir hasta el dron
+detectar_bloques()                              #recoge todos los valores de color
+Funciones.mover_con_pid_sin_reiniciar(50,90)    #avanza hacia dron
+Funciones.giro_der(-180)                        #gira para ir hasta el dron
 Funciones.mover_con_pid_sin_reiniciar(850,-180) #abanza para dejar el dron
-Funciones.mover_con_pid_sin_reiniciar(-150,-180)#retrocede un poco para acomodarse
-Funciones.giro_der(0)                           #gira para mirar al frente
-Funciones.mover_con_pid_sin_reiniciar(700,0)    #abanza hasta donde estaba el dron
-
-
-
-Funciones.giro_izq(-90)
-Funciones.mover_con_pid_sin_reiniciar(200,-90)
-Funciones.giro_izq(-180)
-Funciones.mover_con_pid_sin_reiniciar(150,-180)
-Funciones.mover_con_pid_sin_reiniciar(-150,-180)
-Funciones.giro_der(690,-90)
-
-
+Funciones.mover_con_pid_sin_reiniciar(-850,-180)#retrocede un poco para acomodarse
+Funciones.giro_der(-90)                         #
+Funciones.mover_con_pid_sin_reiniciar(-100,-90) #
+Funciones.mover_con_pid_sin_reiniciar(30,-90)   #
+Funciones.bajar_pala(75)                        #
 
 
 
