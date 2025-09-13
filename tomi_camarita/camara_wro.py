@@ -115,7 +115,7 @@ def detect_signature():
 
 detecciones = []
 
-if __name__ == '__main__':
+def mover_y_detectar_colores():
 
     # Get version
     version = pixy2.get_version()
@@ -141,7 +141,7 @@ if __name__ == '__main__':
                 elif pieza=="red_box":
                     box_roja=i+1
                 elif pieza=="yellow_box":
-                    box_amarillo=i+1  
+                    box_amarillo=i+1
 
             #detecciones.append(pieza)
             if i < 5: # Solo avanzo 5 veces, la sexta no
