@@ -179,4 +179,3 @@ def subir_pala(altura):
 def bajar_pala(altura):
     pala.run_angle(100, -altura)   # Bajar pala
     wait(500)
-
