@@ -68,7 +68,7 @@ Funciones.mover_con_pid_sin_reiniciar(-50,0)    #abre la caja
 Funciones.subir_brazo(30)                       #abre la caja
 Funciones.mover_con_pid_sin_reiniciar(-60,0)    #abre la caja
 Funciones.subir_brazo(30)                       #abre la caja
-#Funciones.mover_con_pid_sin_reiniciar(-50,0)
+#Funciones.mover_con_pid_sin_reiniciar(-50,0)   #por si falta para termina de abrir
 Funciones.subir_pala(80)                        #deposita las pelotitas
 Funciones.mover_con_pid_sin_reiniciar(200,0)    #se aleja 20 cm
 Funciones.giro_izq(-20)                         #gira para acomodarse
