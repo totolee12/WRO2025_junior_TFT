@@ -24,10 +24,6 @@ display = Display()
 motor_left = MediumMotor(OUTPUT_A)
 motor_right = MediumMotor(OUTPUT_B)
 
-box_amarillo=0
-box_roja=0
-box_blanca=0
-box_verde=0
 
 def move_distance_cm(distance_cm, max_speed):
     '''
@@ -81,7 +77,7 @@ def move_distance_cm(distance_cm, max_speed):
     motor_right.off(brake=True)
 
 # Estos colores pueden cambiar, debe coincidir con los configurados en PixyMon
-colores = {'1': "white_box", '2': "green_box", '3': "yellow_box", '4': "red_box"}
+colores = {'1': "white_box", '2': "red_box", '3': "yellow_box", '4': "green_box"}
 
 def debug_print(*args, **kwargs):
 
@@ -124,7 +120,7 @@ if __name__ == '__main__':
     resolution = pixy2.get_resolution()
     debug_print('Frame width:  ', resolution.width)
     debug_print('Frame height: ', resolution.height)
-    pixy2.set_lamp(1, 0) # Turn on the Pixy2 lamp
+    pixy2.set_lamp(1, 1) # Turn on the Pixy2 lamp
     while True:
         debug_print("-- Start detection -- ")
         move_distance_cm(23, 20) # Movimiento hasta el Primer box
@@ -133,25 +129,11 @@ if __name__ == '__main__':
         for i in range(6):
             pieza = detect_signature()
             debug_print("Lugar: ", {i+1}, "Deteccion: ", pieza)
-            if pieza != None:
-                if pieza== "white_box":
-                    box_blanca=i+1
-                elif pieza=="green_box":
-                    box_verde=i+1
-                elif pieza=="red_box":
-                    box_roja=i+1
-                elif pieza=="yellow_box":
-                    box_amarillo=i+1  
-
-            #detecciones.append(pieza)
+            detecciones.append(pieza)
             if i < 5: # Solo avanzo 5 veces, la sexta no
                 move_distance_cm(9.3, 20)
                 time.sleep(1)
         break
 # Finalizo el bucle y limpio la lista de detecciones
-#detecciones = ["Vacio" if x is None else x for x in detecciones]
-debug_print("------------------------------")
-debug_print("amarillo: ",box_amarillo)
-debug_print("rojo: ",box_roja)
-debug_print("verde: ",box_verde)
-debug_print("blanco: ",box_blanca)
+detecciones = ["Vacio" if x is None else x for x in detecciones]
+debug_print(detecciones)
