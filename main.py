@@ -9,7 +9,7 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(270,0)    #Avanza al primer punto
     Funciones.giro_izq(-90)                         #gira 90 a la izquierda
     Funciones.mover_con_pid_sin_reiniciar(-100,-90) #
-    Funciones.mover_con_pid_sin_reiniciar(400,-90)  #avanza hacia el rover antes 
+    Funciones.mover_con_pid_sin_reiniciar(380,-90)  #avanza hacia el rover
     Funciones.giro_izq(-180)                        #gira mirando a las pelotitas
     Funciones.mover_con_pid_sin_reiniciar(-90,-180) #retrocede llendo hacia el rover
     Funciones.bajar_brazo(95)                       #baja el brazo
@@ -23,15 +23,15 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(100,-180) #va a juntar la otra pelota
     Funciones.mover_con_pid_sin_reiniciar(-150,-180)#retrocede para irse a dejarlas
     Funciones.giro_der(-90)                         #gira 90 a la derecha
-    Funciones.mover_con_pid_sin_reiniciar(400,-90)  #avanza a dejar las pelotas
+    Funciones.mover_con_pid_sin_reiniciar(380,-90)  #avanza a dejar las pelotas
     Funciones.giro_der(0)                           #gira 0 a la derecha
     Funciones.mover_con_pid_sin_reiniciar(100,0)    #avanza para acomodar el brazo abao de la caja
     Funciones.bajar_brazo(95)                       #baja el brazo
-    Funciones.mover_con_pid_sin_reiniciar(-200,0)   #abre la caja
+    Funciones.mover_con_pid_sin_reiniciar(-180,0)   #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
-    Funciones.mover_con_pid_sin_reiniciar(-50,0)    #abre la caja
+    Funciones.mover_con_pid_sin_reiniciar(-20,0)    #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
-    Funciones.mover_con_pid_sin_reiniciar(-60,0)    #abre la caja
+    Funciones.mover_con_pid_sin_reiniciar(-30,0)    #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
     #Funciones.mover_con_pid_sin_reiniciar(-50,0)   #por si falta para termina de abrir
     Funciones.subir_pala(110)                       #deposita las pelotitas
