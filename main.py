@@ -9,7 +9,7 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(270,0)    #Avanza al primer punto
     Funciones.giro_izq(-90)                         #gira 90 a la izquierda
     Funciones.mover_con_pid_sin_reiniciar(-100,-90) #
-    Funciones.mover_con_pid_sin_reiniciar(440,-90)  #avanza hacia el rover antes 340
+    Funciones.mover_con_pid_sin_reiniciar(340,-90)  #avanza hacia el rover antes 
     Funciones.giro_izq(-180)                        #gira mirando a las pelotitas
     Funciones.mover_con_pid_sin_reiniciar(-90,-180) #retrocede llendo hacia el rover
     Funciones.bajar_brazo(95)                       #baja el brazo
