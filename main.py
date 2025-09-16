@@ -23,7 +23,8 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(-150,-180)#retrocede para irse a dejarlas
     Funciones.giro_der(-90)                         #gira 90 a la derecha
     Funciones.mover_con_pid_sin_reiniciar(400,-90)  #avanza a dejar las pelotas
-    Funciones.giro_izq(0)                           #gira 0 a la izquerda
+    Funciones.giro_der(0)                           #gira 0 a la derecha
+    Funciones.mover_con_pid_sin_reiniciar(100,0)    #avanza para acomodar el brazo abao de la caja
     Funciones.bajar_brazo(95)                       #baja el brazo
     Funciones.mover_con_pid_sin_reiniciar(-150,0)   #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
@@ -32,10 +33,10 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(-60,0)    #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
     #Funciones.mover_con_pid_sin_reiniciar(-50,0)   #por si falta para termina de abrir
-    Funciones.subir_pala(80)                        #deposita las pelotitas
+    Funciones.subir_pala(110)                       #deposita las pelotitas
     Funciones.mover_con_pid_sin_reiniciar(200,0)    #se aleja 20 cm
     Funciones.giro_izq(-20)                         #gira para acomodarse
-    Funciones.mover_con_pid_sin_reiniciar(250,-20)  #abanza para ir a los bloques de colores
+    Funciones.mover_con_pid_sin_reiniciar(400,-20)  #abanza para ir a los bloques de colores
     Funciones.giro_der(90)                          #gira para ir a los bloques de colores
     Funciones.mover_con_pid_sin_reiniciar(-100,90)  #retrocede y acomoda con la pared
     detectar_bloques()                              #recoge todos los valores de color
@@ -47,7 +48,6 @@ if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(-100,-90) #retrocede y se acomoda
     Funciones.mover_con_pid_sin_reiniciar(30,-90)   #se mueve adelante para buscar bloques
     Funciones.bajar_pala(75)                        #baja la pala
-
 
 
 
