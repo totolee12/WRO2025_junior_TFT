@@ -38,6 +38,8 @@ def giro_izq(angulo, velocidad=200):
             motor_izquierdo.run(-velocidadRobot)  # Izquierda hacia atrás
             motor_derecho.run(velocidadRobot)     # Derecha hacia adelante
         wait(1)
+        motor_izquierdo.run(velocidad)
+        motor_derecho.run(-velocidad)
     motor_izquierdo.stop()
     motor_derecho.stop()
     wait(300)
@@ -69,3 +71,5 @@ def subir_pala(altura):
 def bajar_pala(altura):
     pala.run_angle(100, -altura)   # Bajar pala
     wait(500)
+
+giro_izq(90)
