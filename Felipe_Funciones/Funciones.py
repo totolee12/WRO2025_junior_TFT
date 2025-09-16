@@ -34,12 +34,12 @@ def giro_izq(angulo, velocidad=200):
         wait(1)
     motor_izquierdo.stop()
     motor_derecho.stop()
-    error = angulo - gyro.angle()
+    error = angulo - 1 - gyro.angle()
     while abs(error) > 1:
         direction = 1 if error > 0 else -1
         motor_izquierdo.run(-direction * 20)
         motor_derecho.run(-direction * 20)
-        error = angulo - gyro.angle()
+        error = angulo - 1 - gyro.angle()
         wait(0.01)
     motor_izquierdo.stop()
     motor_derecho.stop()
