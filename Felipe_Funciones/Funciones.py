@@ -26,31 +26,24 @@ def leer_array_sensor():
         lecturas.append(value)
     return lecturas
 
-def giro_izq_progresivo(angulo, velocidad=200):
-    grados = angulo - gyro.angle()
-    porcentaje = (10 * grados) / 100
-    aumentoV = velocidad / porcentaje
-    velocidadRobot = 0
-    reloj = StopWatch()
-    while gyro.angle() >= angulo and reloj.time() < 6000:
-        while gyro.angle() < porcentaje:
-            velocidadRobot += aumentoV
-            motor_izquierdo.run(-velocidadRobot)  # Izquierda hacia atrás
-            motor_derecho.run(velocidadRobot)     # Derecha hacia adelante
-        motor_izquierdo.run(-velocidad)
-        motor_derecho.run(velocidad)
-    motor_izquierdo.stop()
-    motor_derecho.stop()
-    wait(300)
-
 def giro_izq(angulo, velocidad=200):
     reloj = StopWatch()
     while gyro.angle() >= angulo and reloj.time() < 6000:
         motor_izquierdo.run(-velocidad)
         motor_derecho.run(velocidad)
+        wait(1)
     motor_izquierdo.stop()
     motor_derecho.stop()
-    wait(300)
+    error = angulo - gyro.angle()
+    while abs(error) > 1:
+        direction = 1 if error > 0 else -1
+        motor_izquierdo.run(-direction * 20)
+        motor_derecho.run(-direction * 20)
+        error = angulo - gyro.angle()
+        wait(0.01)
+    motor_izquierdo.stop()
+    motor_derecho.stop()
+    print(gyro.angle())
 
 def giro_der(angulo, velocidad=200):
     reloj = StopWatch()
