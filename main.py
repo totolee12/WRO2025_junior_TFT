@@ -8,7 +8,8 @@ from tomi_camarita.camara import detectar_bloques
 if __name__ == "__main__":
     Funciones.mover_con_pid_sin_reiniciar(270,0)    #Avanza al primer punto
     Funciones.giro_izq(-90)                         #gira 90 a la izquierda
-    Funciones.mover_con_pid_sin_reiniciar(340,-90)  #avanza hacia el rover
+    Funciones.mover_con_pid_sin_reiniciar(-100,-90) #
+    Funciones.mover_con_pid_sin_reiniciar(440,-90)  #avanza hacia el rover antes 340
     Funciones.giro_izq(-180)                        #gira mirando a las pelotitas
     Funciones.mover_con_pid_sin_reiniciar(-90,-180) #retrocede llendo hacia el rover
     Funciones.bajar_brazo(95)                       #baja el brazo
@@ -26,7 +27,7 @@ if __name__ == "__main__":
     Funciones.giro_der(0)                           #gira 0 a la derecha
     Funciones.mover_con_pid_sin_reiniciar(100,0)    #avanza para acomodar el brazo abao de la caja
     Funciones.bajar_brazo(95)                       #baja el brazo
-    Funciones.mover_con_pid_sin_reiniciar(-150,0)   #abre la caja
+    Funciones.mover_con_pid_sin_reiniciar(-200,0)   #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
     Funciones.mover_con_pid_sin_reiniciar(-50,0)    #abre la caja
     Funciones.subir_brazo(30)                       #abre la caja
