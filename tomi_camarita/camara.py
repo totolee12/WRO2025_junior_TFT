@@ -6,8 +6,8 @@ from Conexiones.connections import *
 from Felipe_Funciones import Funciones
 
 box_amarillo=0
-box_roja=0
-box_blanca=0
+box_rojo=0
+box_blanco=0
 box_verde=0
 
 detecciones = []
@@ -21,11 +21,11 @@ def detectar_bloques():
         pieza = detect_signature()
         if pieza != None:
             if pieza== "white_box":
-                box_blanca=i+1
+                box_blanco=i+1
             elif pieza=="green_box":
                 box_verde=i+1
             elif pieza=="red_box":
-                box_roja=i+1
+                box_rojo=i+1
             elif pieza=="yellow_box":
                 box_amarillo=i+1
 
