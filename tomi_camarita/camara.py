@@ -11,13 +11,13 @@ box_blanco=0
 box_verde=0
 
 detecciones = []
-
-def detectar_bloques():
+detectar_bloques():
     #move_distance_cm(23, 20) # Movimiento hasta el Primer box
     Funciones.mover_con_pid_sin_reiniciar(23, 90)
     wait(1000)
     # Repito la accion de detectar y avanzar 6 veces
-    for i in range(6):
+    for i in range(6
+def ):
         pieza = detect_signature()
         if pieza != None:
             if pieza== "white_box":
